@@ -1,0 +1,45 @@
+<mat-sidenav-container class="sidenav-container mt-primary">
+  
+  <!-- the side nav -->
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <mat-toolbar> Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item (click)="setDocTitle('Metanor-Dashboard')" routerLink=""> <span    class="material-icons nav-icon">
+          dashboard
+        </span >Dashboard </a>
+      <a mat-list-item (click)="setDocTitle('Metanor-Employees')" routerLink="employees"> <span   class="material-icons nav-icon">
+          face
+        </span> Employees </a>
+      <a mat-list-item (click)="setDocTitle('Metanor-Contacts')" routerLink="contacts"> <span  class="material-icons nav-icon">
+          local_phone
+        </span> Contacts </a>
+      <a mat-list-item> <span class="material-icons nav-icon">
+          group
+        </span> Candidates </a>
+    </mat-nav-list>
+  </mat-sidenav>
+    <!-- the side nav end -->
+
+  <!-- content -->
+  <mat-sidenav-content class="container">
+    <mat-toolbar class="a" color="primary">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Dashboard</span>
+      <span class="example-spacer"></span>
+      <button *ngIf= "router.url != '/new'" class="btn" (click)="setDocTitle('Metanor-New Employee')" routerLink="/new" mat-raised-button color="accent"> <span class="material-icons">
+        add_circle_outline
+        </span> New Employee</button>
+      <button *ngIf= "router.url == '/new'" class="btn" (click)="setDocTitle('Metanor-Dashboard')" routerLink="" mat-raised-button color="accent"><span class="material-icons">
+        keyboard_backspace
+        </span>Back</button>
+
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+    <!-- content end-->
+
+</mat-sidenav-container>

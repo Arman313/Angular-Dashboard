@@ -1,0 +1,226 @@
+<mat-card class="p-5 m-5">
+
+  <mat-card-header>
+    <mat-card-title>
+      New Employee
+    </mat-card-title>
+  </mat-card-header>
+
+  <!-- form -->
+  <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()" class="p-5" autocomplete="off" action="">
+
+    <!-- first row -->
+    <div fxLayoutGap="2rem" fxLayout.lt-sm="column" fxLayout="row">
+      <!-- id -->
+      <div fxFlex="50%">
+        <mat-form-field class="full-width" appearance="">
+          <mat-label>Employee ID</mat-label>
+          <input formControlName="employeeId" matInput placeholder="31209234" required>
+
+          <!-- errors block -->
+          <mat-error *ngIf="employeeForm.get('employeeId').errors?.required">
+            Employee ID cannot be empty
+          </mat-error>
+
+          <mat-error *ngIf="employeeForm.get('employeeId').errors?.minlength 
+            || employeeForm.get('employeeId').errors?.maxlength">
+            Employee id most be 9 numbers
+          </mat-error>
+
+          <mat-error *ngIf="employeeForm.get('employeeId').errors?.pattern">
+            Employee ID can contain only numbers
+          </mat-error>
+
+          <!-- errors block end -->
+        </mat-form-field>
+      </div>
+      <!-- id end -->
+
+      <!-- Role -->
+      <div fxFlex="50%">
+        <mat-form-field class="full-width" appearance="">
+          <mat-label>Role</mat-label>
+
+          <input formControlName="role" matInput placeholder="Developer" required>
+          <!-- errors block -->
+          <mat-error *ngIf="employeeForm.get('role').errors?.required">
+            Please enter a role for the employee
+          </mat-error>
+
+          <mat-error *ngIf="employeeForm.get('role').errors?.minlength">
+            Role most be more than 1 char
+          </mat-error>
+
+          <mat-error *ngIf="employeeForm.get('role').errors?.pattern">
+            Role can contain only letters
+          </mat-error>
+
+        </mat-form-field>
+        <!-- errors block end -->
+      </div>
+      <!-- Role end -->
+
+    </div>
+    <!-- first row end -->
+
+    <!-- second row -->
+    <div fxLayoutGap="2rem" fxLayout.lt-sm="column"  fxLayout="row">
+
+      <!-- first name -->
+      <div fxFlex="50%">
+        <mat-form-field class="full-width" appearance="">
+          <mat-label>First Name</mat-label>
+          <input formControlName="firstName" matInput placeholder="jhon" required>
+          <!-- errors block -->
+          <mat-error *ngIf="employeeForm.get('firstName').errors?.required">
+            Please enter the first name
+          </mat-error>
+
+          <mat-error *ngIf="employeeForm.get('firstName').errors?.minlength">
+            first name most be more than 1 char
+          </mat-error>
+
+          <mat-error *ngIf="employeeForm.get('firstName').errors?.pattern">
+            first name can contain only letters
+          </mat-error>
+
+        </mat-form-field>
+        <!-- errors block end -->
+
+      </div>
+      <!-- first name end -->
+
+      <!-- last name -->
+      <div fxFlex="50%">
+        <mat-form-field class="full-width" appearance="">
+          <mat-label>Last Name</mat-label>
+          <input formControlName="lastName" matInput placeholder="Doe" required>
+          <!-- errors block -->
+          <mat-error *ngIf="employeeForm.get('lastName').errors?.required">
+            Please enter the last name
+          </mat-error>
+
+          <mat-error *ngIf="employeeForm.get('lastName').errors?.minlength">
+            last name most be more than 1 char
+          </mat-error>
+
+          <mat-error *ngIf="employeeForm.get('lastName').errors?.pattern">
+            last name can contain only letters
+          </mat-error>
+
+        </mat-form-field>
+        <!-- errors block end -->
+      </div>
+      <!-- last name end -->
+    </div>
+    <!-- second row end -->
+
+    <!-- third row -->
+    <div fxLayoutGap="2rem" fxLayout.lt-sm="column"  fxLayout="row">
+      <div fxFlex="50%">
+        <div fxLayoutGap="1rem" fxLayout=row>
+          <!-- email -->
+          <div fxFlex="50%">
+            <mat-form-field class="full-width" appearance="">
+              <mat-label>Email</mat-label>
+              <input formControlName="email" matInput placeholder="example@gmail.com" required>
+
+              <mat-error *ngIf="employeeForm.get('email').errors?.required">
+                please enter email adress
+              </mat-error>
+
+              <mat-error *ngIf="employeeForm.get('email').errors?.email">
+                please enter a valid adress
+              </mat-error>
+
+            </mat-form-field>
+          </div>
+          <!-- email end -->
+
+          <!-- phone -->
+          <div fxFlex="50%">
+            <mat-form-field class="full-width" appearance="">
+              <mat-label>Phone</mat-label>
+              <input formControlName="phone" matInput placeholder="0504332341" required>
+
+              <mat-error *ngIf="employeeForm.get('phone').errors?.required">
+                please enter  phone number
+              </mat-error>
+
+              <mat-error *ngIf="employeeForm.get('phone').errors?.pattern">
+                please enter a valid phone
+              </mat-error>
+
+            </mat-form-field>
+          </div>
+          <!-- phone end -->
+        </div>
+      </div>
+    </div>
+    <!-- third row end -->
+
+    <!-- fourth row -->
+    <div fxLayoutGap="2rem" fxLayout.lt-md="column" fxLayout="row">
+
+      <!-- gender -->
+      <div fxLayout.lt-sm="column"  fxFlex="50%">
+        <mat-form-field class="full-width" appearance="">
+          <mat-label>Select Gender</mat-label>
+          <mat-select formControlName="gender" required>
+            <mat-option value="male">Male</mat-option>
+            <mat-option value="female">Female</mat-option>
+          </mat-select>
+          <mat-error *ngIf="employeeForm.get('gender').errors?.required">
+            Please select the gender of the employee
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <!-- gender end -->
+
+      <div fxLayoutAlign="start" fxLayout.lt-sm="column"  fxFlex="50%">
+        <!-- adress group -->
+        <div formGroupName="adress" fxLayoutGap="1rem" fxLayout=row>
+
+          <div fxFlex="50%">
+            <mat-form-field class="example-full-width">
+              <input type="text" placeholder="City" aria-label="city" matInput formControlName="city"
+                [matAutocomplete]="auto">
+              <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let city of filteredCities | async" [value]="city">
+                  {{ city }}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+          </div>
+
+          <div fxFlex="50%">
+            <mat-form-field class="full-width" appearance="">
+              <mat-label>Street</mat-label>
+              <input formControlName="street" matInput placeholder="Alenbi 89" required>
+              <mat-error>
+                Please enter the street
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <!-- adress group end -->
+      </div>
+    </div>
+    <!-- fourth row end -->
+
+    <!-- btn -->
+    <div class="p-5 m-5 btn-box" fxLayout.lt-sm="column"   fxLayoutAlign="center" fxLayout="row">
+      <div>
+        <button type="submit" class="m-5" mat-raised-button color="primary"> <span class="material-icons">
+          check_circle_outline
+          </span> Add
+          new</button>
+        <button type="button" (click)="onClear()" class="btn" mat-raised-button color="accent">
+          <span class="material-icons">
+            highlight_off
+            </span>   Reset</button>
+      </div>
+    </div>
+  </form>
+  <!-- form -->
+</mat-card>

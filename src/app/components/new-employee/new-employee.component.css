@@ -1,0 +1,19 @@
+.full-width{
+    width: 100%;
+}
+
+.p-5{
+    padding: 1rem;
+}
+
+.m-5{
+    margin: .9rem;
+}
+
+.btn{
+    color: white;;
+  }
+
+  .btn-box{
+      margin-top: 22%;
+  }
