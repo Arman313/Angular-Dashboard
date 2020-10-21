@@ -23,7 +23,8 @@ import { PieChartComponent } from './components/pie-chart/pie-chart.component';
 import { BarChartComponent } from './components/bar-chart/bar-chart.component';
 import { DateWidgetComponent } from './components/date-widget/date-widget.component';
 import { MaterialModule } from "./shared/material.module";
-import { NewEmployeeComponent } from './components/new-employee/new-employee.component'
+import { NewEmployeeComponent } from './components/new-employee/new-employee.component';
+import { LoginComponent } from './components/login/login.component'
 
 
 
@@ -39,6 +40,7 @@ import { NewEmployeeComponent } from './components/new-employee/new-employee.com
     BarChartComponent,
     DateWidgetComponent,
     NewEmployeeComponent,
+    LoginComponent,
   ],
 
   imports: [
