@@ -9,6 +9,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireAuthModule } from "@angular/fire/auth";
 
 
 // components
@@ -26,6 +28,8 @@ import { MaterialModule } from "./shared/material.module";
 import { NewEmployeeComponent } from './components/new-employee/new-employee.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component'
+import { environment } from 'src/environments/environment';
+
 
 
 
@@ -46,6 +50,8 @@ import { RegisterComponent } from './components/register/register.component'
   ],
 
   imports: [
+    AngularFireModule.initializeApp(environment),
+    AngularFireAuthModule,
     HttpClientModule,
     ReactiveFormsModule,
     MaterialModule,

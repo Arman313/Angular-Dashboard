@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "dashboard-e1634": {
+      "hosting": {
+        "angular-material-dashboard": [
+          "dashboard-e1634"
+        ]
+      }
+    }
+  }
+}

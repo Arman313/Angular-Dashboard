@@ -1,1 +1,25 @@
-<p>login works!</p>
+<div class="bg"  fxLayout="row" fxLayoutAlign="center" fxLayout.xs="column">
+<div  class="container">
+ <div class="formContent" >
+  <h1>Welcome back</h1>
+  <h3>Login to get started</h3>
+  <form (ngSubmit)="onLogin()" [formGroup]="loginForm" class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input formControlName="email" matInput placeholder="example@gmail.com" >
+    </mat-form-field>
+  
+    <mat-form-field class="example-full-width" appearance="">
+        <mat-label>Enter your password</mat-label>
+        <input formControlName="password" matInput [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+      <div fxLayoutAlign="center">
+        <button type="submit" mat-raised-button color="primary">Login</button>
+      </div>
+  </form>
+ </div>
+</div>
+</div>

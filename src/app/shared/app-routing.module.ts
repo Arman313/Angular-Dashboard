@@ -4,11 +4,13 @@ import { EmployeesTableComponent } from '../components/employees-table/employees
 import { ContactsComponent } from '../components/contacts/contacts.component';
 import { DashboardComponent } from '../components/dashboard/dashboard.component';
 import { NewEmployeeComponent } from '../components/new-employee/new-employee.component';
+import { LoginComponent } from '../components/login/login.component';
 
 
 const routes: Routes = [
-  {path:'',component:DashboardComponent,data:{title: 'Main'}},
-  {path: 'new', component: NewEmployeeComponent ,data:{title: 'New Employee'}},
+  {path:'dashboard',component:DashboardComponent,data:{title: 'Main'}},
+  {path:'signin',component:LoginComponent,data:{title: 'Signin'}},
+  {path: 'new', component: NewEmployeeComponent ,data:{title: 'New employee'}},
   {path:'employees',component:EmployeesTableComponent ,data:{title: 'Employees'}},
   {path:'contacts',component:ContactsComponent ,data:{title: 'Contacts'}}
 ];
